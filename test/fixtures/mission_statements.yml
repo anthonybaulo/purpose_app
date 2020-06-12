@@ -10,6 +10,6 @@ one:
   user: user1
 
 two:
-  content: MyText
+  content: User2 Mission Statement Text
   created_at: <%= 2.hours.ago %>
   user: user2
