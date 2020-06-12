@@ -31,6 +31,9 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem 'faker', '2.1.2'
+gem 'will_paginate-bootstrap4', '~> 0.2.2'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'

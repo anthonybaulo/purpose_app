@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
+<h1>User Profile</h1>
 <p><%= @user.email %></p>
+
+<% unless @mission_statements.empty? %>
+  <h2><%= "Mission Statement".pluralize(@mission_statements.count) %></h2>
+  <ul>
+    <% @mission_statements.each do |ms| %>
+      <li><%= ms.content %></li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <p>This is where your Mission Statement will be.</p>  
+<% end %>
