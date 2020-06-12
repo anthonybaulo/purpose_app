@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_012608) do
+ActiveRecord::Schema.define(version: 2020_06_12_160228) do
 
   create_table "mission_statements", force: :cascade do |t|
     t.text "content"
     t.boolean "public", default: false
-    t.boolean "current", default: true
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
