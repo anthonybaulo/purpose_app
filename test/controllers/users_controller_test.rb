@@ -1,19 +1,21 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get users_index_url
-    assert_response :success
+  
+  test "should redirect index without sign in" do
+    get users_path
+    assert_redirected_to new_user_session_path
   end
 
-  test "should get show" do
-    get users_show_url
-    assert_response :success
+  test "should redirect show without sign in" do
+    user = users(:user1)
+    get user_path(user)
+    assert_redirected_to new_user_session_path
   end
 
-  test "should get destroy" do
-    get users_destroy_url
-    assert_response :success
-  end
+  # test "should get destroy with sign in" do
+  #   get users_destroy_url
+  #   assert_response :success
+  # end
 
 end

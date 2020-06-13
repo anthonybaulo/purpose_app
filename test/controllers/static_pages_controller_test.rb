@@ -13,7 +13,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect without sign in" do
-    paths = [static_pages_help_url, static_pages_about_url, static_pages_contact_url]
+    paths = [help_path, about_path, contact_path]
     paths.each do |path|
       get path
       assert_redirected_to new_user_session_path
