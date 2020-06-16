@@ -8,3 +8,16 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-brand {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+#sticky-sidebar a {
+  color: $gray-100;
+}
+
+#sticky-sidebar {
+  max-width: 13%;
+}

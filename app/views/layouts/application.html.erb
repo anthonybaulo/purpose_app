@@ -21,12 +21,14 @@
   <% unless flash.empty? %>
     <%= render 'layouts/flash' %>
   <% end %>
-
-  <div class="container">
-    <%= yield %>
-  </div>
-
-  <%= render 'layouts/footer' %>
+  
+  <% if user_signed_in? %>
+    <%= render 'layouts/sidebar'%>
+  <% else %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  <% end %>  
 </body>
-
 </html>
