@@ -10,14 +10,17 @@
           <a href="#" class="nav-link">Following</a>
           <a href="#" class="nav-link">Cohort</a>
           <div class="dropdown-divider"></div>
+          <%= link_to "Profile", current_user, class: "nav-link" %>
           <a href="#" class="nav-link">Public Feed</a>
           <%= link_to "Users", users_path, class: "nav-link" %>
         </div>
       </div>
     </div>
-    <div class="col py-2" id="main">
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+    <div class="col" id="main">
+      <div class="container p-4 m-1">
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
     </div>
   </div>
 </div>
