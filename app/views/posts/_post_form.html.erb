@@ -1,0 +1,8 @@
+<h2>Create your post:</h2>
+
+<%= form_with(model: @post, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control", rows: 12 %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
