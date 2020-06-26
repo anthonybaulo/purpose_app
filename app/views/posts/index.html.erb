@@ -5,6 +5,7 @@
   <ul>
     <% @posts.each do |post| %>
       <li>
+        <h4><%= post.title %></h4>
         <p style="white-space: pre-line;"><%= post.content %></p>
         <p>Created on: <%= post.created_at.strftime('%b %d, %y at %H:%M:%S') %></p>
         <%= link_to 'edit', edit_post_path(post), class: "btn-sm btn-outline-warning" %>

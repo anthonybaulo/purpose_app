@@ -3,7 +3,8 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:user1)
-    @post = @user.posts.build(content: "Lorem ipsum")
+    @post = @user.posts.build(title: "Title",
+                              content: "Lorem ipsum")
   end
  
   test "should be valid" do

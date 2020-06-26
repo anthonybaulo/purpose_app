@@ -1,16 +1,19 @@
 post1:
+  title: Title
   content: Private post from user1
   public: false
   created_at: <%= 10.minutes.ago %>
   user: user1
 
 post2:
+  title: Title
   content: Public post from user2
   public: true
   created_at: <%= 10.minutes.ago %>
   user: user2
 
 most_recent: 
+  title: Title
   content: "Most recent post" 
   created_at: <%= Time.zone.now %> 
   user: user1
