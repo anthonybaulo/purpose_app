@@ -19,7 +19,30 @@ class PostsController < ApplicationController
     end    
   end
 
-  def destroy
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:alert] = "Post updated"
+      redirect_to posts_path
+    else
+      flash[:error] = "Post was not updated"
+      render 'edit'
+    end
+  end
+  
+  def destroy 
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:alert] = "Post deleted" 
+      redirect_to posts_path
+    else
+      flash[:error] = "Post was not deleted"
+      render 'index'
+    end
   end
 
   private

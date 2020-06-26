@@ -1,0 +1,20 @@
+<div class="card mb-3">
+  <h3 class="card-header"><%= post.title %></h3>
+  <div class="card-body">
+    <p class="card-text"><%= post.content %></p>
+  </div>
+  <%# If image is added to posts %>
+  <%# <img style="height: 200px; width: 100%; display: block;" src="#" alt="Card image"> %>
+  <div class="card-body">
+    <%= link_to 'edit', edit_post_path(post), class: "btn btn-sm btn-outline-warning" %>
+    <%= link_to 'delete', post, method: :delete,
+                              data:   { confirm: "You sure?" },
+                              class: "btn btn-sm btn-outline-danger" %>
+  </div>
+  <div class="card-footer text-muted">
+    Created on: <%= post.created_at.strftime('%b %d, %y at %H:%M:%S') %>
+    <% unless post.updated_at == post.created_at %>
+      <br>Edited on: <%= post.updated_at.strftime('%b %d, %y at %H:%M:%S') %>
+    <% end %>
+  </div>
+</div>
