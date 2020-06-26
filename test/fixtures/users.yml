@@ -3,3 +3,6 @@ user1:
 
 user2: 
   email: user2@example.com
+
+new_user:
+  email: new@example.com

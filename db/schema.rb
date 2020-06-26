@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_160228) do
+ActiveRecord::Schema.define(version: 2020_06_26_153807) do
 
   create_table "mission_statements", force: :cascade do |t|
     t.text "content"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_06_12_160228) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "created_at"], name: "index_mission_statements_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_mission_statements_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.boolean "public", default: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +58,5 @@ ActiveRecord::Schema.define(version: 2020_06_12_160228) do
   end
 
   add_foreign_key "mission_statements", "users"
+  add_foreign_key "posts", "users"
 end
