@@ -1,7 +1,9 @@
 <h1>User Profile</h1>
 <p><%= @user.email %></p>
 
-<button class="btn btn-sm btn-secondary">Follow</button>
+<% unless current_user?(@user) %>
+  <button class="btn btn-sm btn-secondary">Follow</button>
+<% end %>
 <hr>
 <h2>Mission Statement</h2>
 <p>...</p>
