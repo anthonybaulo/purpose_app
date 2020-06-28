@@ -8,5 +8,7 @@
 <h2>Mission Statement</h2>
 <p>...</p>
 
+<% unless @user.posts.empty? %>
 <h2>Public Posts</h2>
-<p>...</p>
+<%= render @user.posts %>
+<% end %>
