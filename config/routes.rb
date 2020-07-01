@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :relationships, only: [:create, :destroy]
 
-  root 'static_pages#home'
+  root 'static_pages#welcome'
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
