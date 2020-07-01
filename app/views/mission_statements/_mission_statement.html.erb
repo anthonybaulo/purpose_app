@@ -3,11 +3,14 @@
     <p class="card-text"><%= mission_statement.content %></p>
   </div>
   <% if mission_statement.user == current_user %>
-    <div class="card-body">
-      <%= link_to 'edit', edit_mission_statement_path(mission_statement), class: "btn btn-sm btn-outline-warning" %>
-      <%= link_to 'delete', mission_statement, method: :delete,
-                                data:   { confirm: "Are you sure?" },
-                                class: "btn btn-sm btn-outline-danger" %>
+    <hr class="m-0">
+    <div class="card-body py-2">
+      <%= link_to 'edit',   edit_mission_statement_path(mission_statement),
+                            class: "btn btn-sm btn-outline-warning edit-delete-btn" %>
+      <%= link_to 'delete', mission_statement, 
+                            method: :delete,
+                            data:   { confirm: "Are you sure?" },
+                            class: "btn btn-sm btn-outline-danger edit-delete-btn" %>
     </div>
   <% end %>
   <div class="card-footer text-muted">

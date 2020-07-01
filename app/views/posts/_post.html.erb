@@ -1,6 +1,6 @@
 <div class="card mb-3">
   <div class="card-header d-flex justify-content-between align-items-center">
-    <h3><%= post.title %></h3>
+    <h3 class="m-0"><%= post.title %></h3>
     <% unless post.user == current_user %>
       <h5><%= link_to post.user.email, post.user, class: "badge badge-secondary badge-pill" %></h5>
     <% end %>
@@ -12,11 +12,14 @@
   <%# If image is added to posts %>
   <%# <img style="height: 200px; width: 100%; display: block;" src="#" alt="Card image"> %>
   <% if post.user == current_user %>
-    <div class="card-body">
-      <%= link_to 'edit', edit_post_path(post), class: "btn btn-sm btn-outline-warning" %>
-      <%= link_to 'delete', post, method: :delete,
-                                data:   { confirm: "You sure?" },
-                                class: "btn btn-sm btn-outline-danger" %>
+    <hr class="m-0">
+    <div class="card-body py-2">
+      <%= link_to 'edit',   edit_post_path(post), 
+                            class: "btn btn-sm btn-outline-warning edit-delete-btn" %>
+      <%= link_to 'delete', post, 
+                            method: :delete,
+                            data:   { confirm: "Are you sure?" },
+                            class: "btn btn-sm btn-outline-danger edit-delete-btn" %>
     </div>
   <% end %>
   <div class="card-footer text-muted">
