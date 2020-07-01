@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.paginate(page: params[:page])
   end
 
   def new
@@ -43,6 +43,11 @@ class PostsController < ApplicationController
       flash[:error] = "Post was not deleted"
       render 'index'
     end
+  end
+
+  def public
+    @posts = Post.where("user_id != ? AND public = true", current_user.id)
+                 .paginate(page: params[:page])
   end
 
   private

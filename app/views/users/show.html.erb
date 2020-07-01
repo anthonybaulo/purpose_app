@@ -6,7 +6,9 @@
   <%= render @mission_statement %>
 <% end %>
 
-<% unless @user.posts.empty? %>
+<% unless @posts.empty? %>
   <h2>Public Posts</h2>
-  <%= render @user.posts %>
+  <%= will_paginate @posts %>
+  <%= render @posts %>
+  <%= will_paginate @posts %>
 <% end %>

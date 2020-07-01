@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @mission_statement = @user.mission_statements.where("public = true").first
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def following
@@ -24,6 +25,6 @@ class UsersController < ApplicationController
   end  
 
   def feed
-    @posts = current_user.feed
+    @posts = current_user.feed.paginate(page: params[:page])
   end
 end

@@ -1,7 +1,9 @@
 <%= link_to "New Post", new_post_path, class: "btn btn-sm btn-primary" %>
 <hr>
 <% unless @posts.empty? %>
+  <%= will_paginate %>
   <%= render @posts %>
+  <%= will_paginate %>
 <% else %>
   <p>Create your first Post.</p>  
 <% end %>

@@ -1,3 +1,4 @@
-<% @posts.each do |post| %>
-  <%= render post %>
-<% end %>
+<h1>Private Feed</h1>
+<%= will_paginate @posts %>
+<%= render @posts %>
+<%= will_paginate @posts %>
