@@ -11,6 +11,12 @@
     </div>
   <% end %>
   <div class="card-footer text-muted">
+    <% if mission_statement.user == current_user %>
+      <h3 class="badge badge-secondary badge-pill m-0">
+        <%= mission_statement.public ? "Public" : "Private" %>
+      </h3>
+      <br>
+    <% end %>
     Created on: <%= mission_statement
                     .created_at
                     .localtime

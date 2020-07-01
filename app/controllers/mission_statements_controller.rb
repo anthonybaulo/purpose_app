@@ -48,6 +48,6 @@ class MissionStatementsController < ApplicationController
   private
 
     def ms_params
-      params.require(:mission_statement).permit(:content)
+      params.require(:mission_statement).permit(:content, :public)
     end
 end
