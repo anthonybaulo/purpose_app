@@ -20,9 +20,13 @@
     </div>
   <% end %>
   <div class="card-footer text-muted">
-    Posted on: <%= post.created_at.strftime('%b %d, %y at %H:%M:%S') %>
+    Posted on: <%= post.created_at
+                       .localtime
+                       .strftime('%b %d, %Y at %H:%M:%S') %>
     <% unless post.updated_at == post.created_at %>
-      <br>Edited on: <%= post.updated_at.strftime('%b %d, %y at %H:%M:%S') %>
+      <br>Edited on: <%= post.updated_at
+                             .localtime
+                             .strftime('%b %d, %Y at %H:%M:%S') %>
     <% end %>
   </div>
 </div>
