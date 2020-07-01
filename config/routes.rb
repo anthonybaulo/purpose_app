@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     # Create routes for following/followers
     member do
-      get :following, :followers, :feed
+      get :following, :followers
     end
   end
   resources :mission_statements
@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   root 'static_pages#welcome'
-  get '/help',    to: 'static_pages#help'
-  get '/about',   to: 'static_pages#about'
-  get '/contact', to: 'static_pages#contact'
-  get '/home',    to: 'users#home'
+  get '/help',        to: 'static_pages#help'
+  get '/about',       to: 'static_pages#about'
+  get '/contact',     to: 'static_pages#contact'
+  get '/home',        to: 'users#home'
+  get '/feed',        to: 'users#feed'
+  get '/public_feed', to: 'posts#public'
 
 end
