@@ -21,13 +21,17 @@ class MissionStatementsController < ApplicationController
 
   def edit
     @mission_statement = MissionStatement.find(params[:id])
+    # Store referring url in session for redirect after update
+    store_forwarding_url  
   end
 
   def update
     @mission_statement = MissionStatement.find(params[:id])
     if @mission_statement.update(ms_params)
       flash[:alert] = "Mission Statement updated"
-      redirect_to mission_statements_path
+      forwarding_url = session[:forwarding_url]
+      session[:forwarding_url] = nil
+      redirect_to forwarding_url || posts_path
     else
       flash[:error] = "Mission Statement was not updated"
       render 'edit'      

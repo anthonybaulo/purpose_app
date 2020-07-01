@@ -21,13 +21,17 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    # Store referring url in session for redirect after update
+    store_forwarding_url
   end
   
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:alert] = "Post updated"
-      redirect_to posts_path
+      forwarding_url = session[:forwarding_url]
+      session[:forwarding_url] = nil
+      redirect_to forwarding_url || posts_path
     else
       flash[:error] = "Post was not updated"
       render 'edit'

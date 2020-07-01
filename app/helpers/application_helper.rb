@@ -12,4 +12,8 @@ module ApplicationHelper
   def current_user?(user)
     user && user == current_user
   end
+
+  def store_forwarding_url
+    session[:forwarding_url] = request.referrer if request.get?
+  end
 end
