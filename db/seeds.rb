@@ -18,24 +18,26 @@ end
 
 # Create Mission Statement for all users.
 users = User.all
-
-users.each do |user| 
-  content = Faker::Lorem.paragraphs(number: 5, supplemental: true).join("\n\n")
-  user.mission_statements.create!(content: content)
+2.times do |n|
+  users.each do |user| 
+    content = Faker::Lorem.paragraphs(number: 5, supplemental: true).join("\n\n")
+    pub     = n.odd? ? true : false
+    user.mission_statements.create!(content: content, public: pub)
+  end
 end
 
 # Create Posts for users.
-3.times do
+5.times do |n|
   users.each do |user| 
     title   = Faker::Company.bs
     content = Faker::Lorem.paragraphs(number: 5, supplemental: true).join("\n\n")
-    user.posts.create!(title: title, content: content, public: true)
+    pub     = n.odd? ? true : false    
+    user.posts.create!(title: title, content: content, public: pub)
   end
 end
 
 # Create following relationships.
-user      = users.first
-following = users[2..40]
-followers = users[10..30]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
+users.each do |user|
+  following = users.sample(rand(1..25))
+  following.each { |followed| user.follow(followed) }
+end
