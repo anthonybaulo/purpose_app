@@ -1,0 +1,8 @@
+<div class="h5 mb-3">
+  <%= link_to "Following: #{@user.following.count}", 
+              following_user_path(@user),
+              class: "badge badge-pill badge-dark" %>
+  <%= link_to "Followers: #{@user.followers.count}", 
+              followers_user_path(@user),
+              class: "badge badge-pill badge-dark" %>
+</div>

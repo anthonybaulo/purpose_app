@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-
+  
+  # Use devise user routes
   devise_for :users
-  resources :users,              only: [:index, :show, :destroy]
+
+  # Add my user routes
+  resources :users, only: [:index, :show] do
+    # Create routes for following/followers
+    member do
+      get :following, :followers, :feed
+    end
+  end
   resources :mission_statements
   resources :posts
-  
+  resources :relationships, only: [:create, :destroy]
+
   root 'static_pages#home'
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'

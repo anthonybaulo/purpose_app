@@ -1,9 +1,11 @@
 <h1>User Dashboard</h1>
-<p><%= @user.email %></p>
+<%= render 'user_header'%>
 
 <hr>
-<h2>Mission Statement</h2>
-<p style="white-space: pre-line;"><%= @user.mission_statements.first.content %></p>
+<% unless @user.mission_statements.empty? %>
+  <h2>Mission Statement</h2>
+  <p style="white-space: pre-line;"><%= @user.mission_statements.first.content %></p>
+<% end %>
 
 <h2>Goals/countdowns/timers</h2>
 <p>...</p>

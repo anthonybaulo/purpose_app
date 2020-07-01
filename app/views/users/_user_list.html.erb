@@ -1,0 +1,9 @@
+<%= will_paginate user_list %>
+<div class="list-group col-md-5">
+  <% user_list.each do |user| %>
+  <div class="list-group-item flex-column align-items-start">
+    <%= render 'user', user: user %>
+  </div>
+  <% end %>
+</div class="list-group">
+<%= will_paginate user_list %>

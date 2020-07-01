@@ -1,0 +1,7 @@
+one:
+  follower: user1
+  followed: new_user
+
+two:
+  follower: new_user
+  followed: user1

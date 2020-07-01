@@ -1,12 +1,11 @@
 <h1>User Profile</h1>
-<p><%= @user.email %></p>
+<%= render 'user_header'%>
 
-<% unless current_user?(@user) %>
-  <button class="btn btn-sm btn-secondary">Follow</button>
-<% end %>
 <hr>
 <h2>Mission Statement</h2>
 <p>...</p>
 
-<h2>Public Posts</h2>
-<p>...</p>
+<% unless @user.posts.empty? %>
+  <h2>Public Posts</h2>
+  <%= render @user.posts %>
+<% end %>
