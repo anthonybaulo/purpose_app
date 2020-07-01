@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @mission_statement = @user.mission_statements.where("public = true").first
-    @posts = @user.posts.paginate(page: params[:page])
+    @posts = @user.posts.where("public = true").paginate(page: params[:page])
   end
 
   def following
