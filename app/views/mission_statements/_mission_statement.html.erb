@@ -1,0 +1,25 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text"><%= mission_statement.content %></p>
+  </div>
+  <% if mission_statement.user == current_user %>
+    <div class="card-body">
+      <%= link_to 'edit', edit_mission_statement_path(mission_statement), class: "btn btn-sm btn-outline-warning" %>
+      <%= link_to 'delete', mission_statement, method: :delete,
+                                data:   { confirm: "Are you sure?" },
+                                class: "btn btn-sm btn-outline-danger" %>
+    </div>
+  <% end %>
+  <div class="card-footer text-muted">
+    Created on: <%= mission_statement
+                    .created_at
+                    .localtime
+                    .strftime('%b %d, %Y at %H:%M:%S') %>
+    <% unless mission_statement.updated_at == mission_statement.created_at %>
+      <br>Edited on: <%= mission_statement
+                         .updated_at
+                         .localtime
+                         .strftime('%b %d, %Y at %H:%M:%S') %>
+    <% end %>
+  </div>
+</div>

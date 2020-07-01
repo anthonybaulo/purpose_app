@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @mission_statements = @user.mission_statements
+    @mission_statement = @user.mission_statements.where("public = true").first
   end
 
   def following

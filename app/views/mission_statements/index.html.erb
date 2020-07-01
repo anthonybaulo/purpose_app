@@ -2,19 +2,7 @@
 <hr>
 <% unless @mission_statements.empty? %>
   <h2><%= "Your Mission Statement".pluralize(@mission_statements.count) %></h2>
-  <ul>
-    <% @mission_statements.each do |ms| %>
-      <li>
-        <p style="white-space: pre-line;"><%= ms.content %></p>
-        <%= link_to 'edit', edit_mission_statement_path(ms), class: "btn-sm btn-outline-warning" %>
-        <%= link_to 'delete', ms, method: :delete,
-                                  data:   { confirm: "You sure?" },
-                                  class: "btn-sm btn-outline-danger" %>
-        <hr width="30%">
-      </li>
-    <% end %>
-  </ul>
-
+  <%= render @mission_statements %>
 <% else %>
   <p>Create your first Mission Statement.</p>  
 <% end %>

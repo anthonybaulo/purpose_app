@@ -1,9 +1,10 @@
 <h1>User Profile</h1>
-<%= render 'user_header'%>
-
+<%= render 'user_header' %>
 <hr>
-<h2>Mission Statement</h2>
-<p>...</p>
+<% unless @mission_statement.nil? %>
+  <h2>Mission Statement</h2>
+  <%= render @mission_statement %>
+<% end %>
 
 <% unless @user.posts.empty? %>
   <h2>Public Posts</h2>
