@@ -18,6 +18,10 @@
   max-width: 13%;
 }
 
+.nav-link.disabled {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
 // Misc Styles
 .btn {
   -webkit-border-radius: 3px;
