@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     # Create routes for following/followers
     member do
-      get :following, :followers
+      get :following, :followers, :feed
     end
   end
   resources :mission_statements

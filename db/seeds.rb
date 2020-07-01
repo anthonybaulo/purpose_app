@@ -29,7 +29,7 @@ end
   users.each do |user| 
     title   = Faker::Company.bs
     content = Faker::Lorem.paragraphs(number: 5, supplemental: true).join("\n\n")
-    user.posts.create!(title: title, content: content)
+    user.posts.create!(title: title, content: content, public: true)
   end
 end
 

@@ -7,7 +7,7 @@
           <a href="#" class="nav-link">Inspirations</a>
           <a href="#" class="nav-link">Goals</a>
           <%= link_to "Posts", posts_path, class: "nav-link" %>          
-          <a href="#" class="nav-link">Following Feed</a>
+          <%= link_to "Feed", feed_user_path(current_user), class: "nav-link" %>
           <a href="#" class="nav-link">Cohort</a>
           <div class="dropdown-divider"></div>
           <%= link_to "Profile", current_user, class: "nav-link" %>

@@ -22,4 +22,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followers = @user.followers.paginate(page: params[:page])
   end  
+
+  def feed
+    @posts = current_user.feed
+  end
 end

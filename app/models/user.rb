@@ -35,4 +35,10 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def feed
+    Post.where("user_id IN (SELECT followed_id FROM relationships
+                            WHERE follower_id = ?) 
+                AND public = true", id) 
+  end
 end
