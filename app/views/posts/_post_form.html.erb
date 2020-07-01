@@ -8,5 +8,13 @@
                               rows:        12,
                               placeholder: "Content" %>
   </div>
+  <div class="form-group">
+    <div class="custom-control custom-switch">
+      <%= f.check_box :public, { class: "custom-control-input" },
+                               "true", "false" %>
+      <%= f.label     :public, "Public",
+                               { class: "custom-control-label" } %>
+    </div>
+  </div>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

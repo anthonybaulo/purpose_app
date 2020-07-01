@@ -3,7 +3,7 @@
     <h3><%= post.title %></h3>
     <% unless post.user == current_user %>
       <h5><%= link_to post.user.email, post.user, class: "badge badge-secondary badge-pill" %></h5>
-    <% end %>    
+    <% end %>
   </div>
 
   <div class="card-body">
@@ -20,6 +20,12 @@
     </div>
   <% end %>
   <div class="card-footer text-muted">
+    <% if post.user == current_user %>
+      <h3 class="badge badge-secondary badge-pill m-0">
+        <%= post.public ? "Public" : "Private" %>
+      </h3>
+      <br>
+    <% end %>
     Posted on: <%= post.created_at
                        .localtime
                        .strftime('%b %d, %Y at %H:%M:%S') %>
