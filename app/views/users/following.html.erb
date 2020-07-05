@@ -1,2 +1,8 @@
-<h2 class="pb-3"><%= @user.email %> is following:</h2>
+<h2 class="pb-3">
+  <% if @user == current_user %>
+    You are following:
+  <% else %>
+    <%= link_to @user.email, @user %> is following:
+  <% end %>
+</h2>
 <%= render 'user_list', user_list: @following %>
