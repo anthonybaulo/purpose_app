@@ -15,6 +15,15 @@ class UserTest < ActiveSupport::TestCase
     end 
   end
 
+  test "associated timers should be destroyed" do 
+    @user.timers.create!(name: "Lorem ipsum", 
+                         unit: 'd', 
+                         date: 2.days.from_now) 
+    assert_difference 'Timer.count', -1 do 
+      @user.destroy 
+    end 
+  end
+
   test "should follow and unfollow a user" do
     user1 = users(:user1)
     user2  = users(:user2)

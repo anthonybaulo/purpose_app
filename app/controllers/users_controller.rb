@@ -27,4 +27,9 @@ class UsersController < ApplicationController
   def feed
     @posts = current_user.feed.paginate(page: params[:page])
   end
+
+  def events
+    # TODO make events equal to all timers AND counters
+    @events = current_user.timers.paginate(page: params[:page])
+  end
 end

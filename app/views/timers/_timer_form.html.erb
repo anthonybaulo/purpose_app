@@ -1,0 +1,13 @@
+<%= form_with(model: @timer, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :name, class:       "form-control",
+                            placeholder: "Name" %>
+  </div>
+  <div class="form-group">
+    <%= f.datetime_select :date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :unit, class: "form-control" %>
+  </div>  
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

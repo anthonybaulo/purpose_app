@@ -1,0 +1,9 @@
+<%= link_to "New Timer", new_timer_path, class: "btn btn-sm btn-primary" %>
+<hr>
+<% unless @timers.empty? %>
+  <%= will_paginate %>
+  <%= render @timers %>
+  <%= will_paginate %>
+<% else %>
+  <p>Create your first Timer.</p>  
+<% end %>

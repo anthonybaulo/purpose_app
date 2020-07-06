@@ -1,0 +1,9 @@
+<%= link_to "New Timer", new_timer_path, class: "btn btn-sm btn-primary" %>
+<%= link_to "New Counter", "#", class: "btn btn-sm btn-primary ml-3" %>
+<hr>
+<p class="text-muted">Time.now.localtime: <%= Time.now.localtime %></p>
+<h2>All events:</h2>
+<p class="text-muted">This will eventually be all timers and counters. But for now it's only timers.</p>
+<% @events.each do |timer| %>
+  <p><%= render timer %></p>
+<% end %>

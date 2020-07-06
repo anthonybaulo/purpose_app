@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :mission_statements
   resources :posts
   resources :relationships, only: [:create, :destroy]
+  resources :timers
 
   root 'static_pages#welcome'
   get '/help',        to: 'static_pages#help'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get '/contact',     to: 'static_pages#contact'
   get '/home',        to: 'users#home'
   get '/feed',        to: 'users#feed'
+  get '/events',      to: 'users#events'
   get '/public_feed', to: 'posts#public'
 
 end

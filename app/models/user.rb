@@ -5,6 +5,7 @@ class User < ApplicationRecord
   
   has_many :mission_statements,   dependent: :destroy
   has_many :posts,                dependent: :destroy
+  has_many :timers,               dependent: :destroy
   
   # Set up active relationship to follow other users
   has_many :active_relationships, class_name:  "Relationship", # Model name

@@ -1,0 +1,13 @@
+<p>
+  Name: <%= timer.name %> <br>
+  Datetime (in local): <%= timer.date.localtime %> <br>
+  Unit: <%= timer.unit %>
+  <div>
+    <%= link_to 'edit',   edit_timer_path(timer), 
+                          class: "btn btn-sm btn-outline-warning edit-delete-btn" %>
+    <%= link_to 'delete', timer, 
+                          method: :delete,
+                          data:   { confirm: "Are you sure?" },
+                          class: "btn btn-sm btn-outline-danger edit-delete-btn" %>
+  </div>
+</p>
