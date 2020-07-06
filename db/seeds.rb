@@ -11,9 +11,11 @@ user.save!
   name     = Faker::Name.first_name
   email    = "#{name}-#{n}@example.com"
   password = "password"
-  User.create!(email:                 email,
-               password:              password,
-               password_confirmation: password)
+  user     = User.new(email:                 email,
+                      password:              password,
+                      password_confirmation: password)
+  user.skip_confirmation!
+  user.save!
 end
 
 # Create Mission Statement for all users.
@@ -39,5 +41,5 @@ end
 # Create following relationships.
 users.each do |user|
   following = users.sample(rand(1..25))
-  following.each { |followed| user.follow(followed) }
+  following.each { |followed| user.follow(followed) unless followed == user }
 end
