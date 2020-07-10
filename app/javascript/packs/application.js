@@ -7,18 +7,20 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
-global.jQuery, global.$ = require("jquery");
-global.toastr = require("toastr");
 
+import "jquery";
 import "bootstrap";
+import toastr from "toastr";
 import "../stylesheets/application";
 
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-  $('[data-toggle="popover"]').popover()
-  $('.toast').toast({ autohide: false })
-  $('#toast').toast('show')
-});
+window.toastr = toastr;
+
+// document.addEventListener("turbolinks:load", () => {
+//   $('[data-toggle="tooltip"]').tooltip()
+//   $('[data-toggle="popover"]').popover()
+//   $('.toast').toast({ autohide: false })
+//   $('#toast').toast('show')
+// });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
